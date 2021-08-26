@@ -56,5 +56,6 @@ pred_predict = linear.predict([[40]])
 print("온도 예측:", pred_predict)
 
 
-accuracy=linear.score(test_x.reshape(-1,1),predict)
+accuracy=linear.score(test_x.reshape(-1,1),test_y)
+# score 함수는 얼마나 모델의 정확도가 있는지 판단할수 있으니..predict가 아니라 test_y를 넣는다
 print("accuracy:", accuracy)

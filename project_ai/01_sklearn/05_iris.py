@@ -1,9 +1,9 @@
-import numpy
+
 import pandas as pd
+import numpy as np
 from sklearn.datasets import load_iris
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
-import numpy as np
 from sklearn.model_selection import train_test_split
 # 데이터 준비
 
@@ -57,12 +57,14 @@ plt.show()
 
 train_x, test_x, train_y, test_y = train_test_split(x,y, test_size=0.3, random_state=1)
 
+'''
 train_y.shape
 print(train_y.shape)
 # x값 (150,4) // y값 (150,)
 # train x값 (105,4) y값 (105,)
 # text  x값 (45,4) y값 (45,)
-
+'''
+# 즉 reshape를 안해도 됨
 #모델준비
 
 logistic=LogisticRegression()
@@ -75,16 +77,11 @@ logistic.fit(train_x,train_y)
 
 #예측및 평가.
 pred=logistic.predict(test_x)
-print(test_x)
-print(pred)
-
+# print(test_x)
+# print(pred)
+for i in range(len(test_x)):
+    print(test_x[i],"-> 예측:", iris.target_names[pred[i]],"\t 실제:",iris.target_names[test_y[i]])
 
 # 예측및 평가
-
-plt.plot(test_x,test_y, "b.")
-plt.plot(test_x,pred,"r.")
-
-plt.xlim(10,140)
-plt.ylim(100,220)
-plt.grid()
-plt.show()
+accuracy=logistic.score(test_x,test_y)
+print(accuracy)
