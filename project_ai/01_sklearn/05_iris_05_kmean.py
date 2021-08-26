@@ -1,3 +1,4 @@
+import numpy as np
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.cluster import KMeans
@@ -72,14 +73,18 @@ mean.fit(train_x)
 #예측및 결과
 
 pred=mean.predict(test_x)
-# print(test_x)
-# print(pred)
 
+'''
+# 만약 실제 x값을 넣는다면.!! ex=[5.0,3.1,0.2,1.0]
+pred=mean.predict(test_x)
+predic=mean.prefict(np.array([5.0,3.1,0.2,1.0], dtype=np.flote64).reshape(1,-1))
+print(predic)
+'''
 
 df=pd.DataFrame(test_x)
 df.columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 df["category"]=pd.DataFrame(pred)
-# print(df)
+
 
 centers=pd.DataFrame(mean.cluster_centers_)
 centers.columns=['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
@@ -90,3 +95,5 @@ centers_y=centers["sepal_width"]
 plt.scatter(df["sepal_length"],df['sepal_width'],c=df["category"])
 plt.scatter(centers_x,centers_y,s=100,c="r",marker="*")
 plt.show()
+
+
