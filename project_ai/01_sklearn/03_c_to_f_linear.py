@@ -45,13 +45,13 @@ linear=LinearRegression()
 
 #학습
 
-linear.fit(train_x.reshape(-1,1),train_y)
+linear.fit(train_x,train_y)
 
 
 
 #예측 및 평가
 
-predict=linear.predict(test_x.reshape(-1,1))
+predict=linear.predict(test_x)
 pred_predict = linear.predict([[40]])
 print("온도 예측:", pred_predict)
 
