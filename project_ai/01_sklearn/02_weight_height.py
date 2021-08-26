@@ -12,7 +12,7 @@ import numpy as np
 pd.set_option('display.width',300)
 pd.set_option('display.max_rows',1000)
 pd.set_option('display.max_columns',30)
-df=pd.read_csv("weight_height.csv", encoding="euc-kr")
+df=pd.read_csv("02_weight_height.csv", encoding="euc-kr")
 
 # print(df)
 
@@ -42,7 +42,8 @@ df['grade']=list(map(lambda x: 0 if x[-4:]=='초등학교' else(6 if x[-3:]=="�
 #             df[(df['학년'] == "2")] = '11'
 #             df[(df['학년'] == "3")] = '12'
 #         else:
-##### 마무리 못함
+##### 마무리 못함..어떻게 마무리를 할까..흐으음..ㅡㅡ
+
 #
 #
 # print(df)
@@ -71,7 +72,7 @@ df['gender']=df['gender'].map(lambda x: 0 if x=="남" else 1)
 # df.loc[df['gender']=='여','gender']='1'
 # df.loc[condition, column_label] = new_value
 # condition: 이 매개 변수는 조건을 참으로 만드는 값을 반환합니다.
-# column_label: 업데이트 할 대상 열을 지정하는 데 사용되는이 매개 변수
+# column_label: 업데이트 할 대상 열을 지정하는 데 사용되는 매개 변수
 # 더 쉽게 말하면 매개 변수를 통해 값을 결정한 후 new_value로 업데이트합니다.
 
 
@@ -109,13 +110,13 @@ predict=linear.predict(test_x)
 
 
 # 그래프
-plt.plot(test_x,test_y, "b")
-plt.plot(test_x,predict,"r")
+plt.plot(test_x,test_y, "b.")
+plt.plot(test_x,predict,"r.")
 
 plt.xlim(10,140)
 plt.ylim(100,220)
 plt.grid()
-# plt.show()
+plt.show()
 
 # 몸무게 80킬로의 키를 에측시에
 
