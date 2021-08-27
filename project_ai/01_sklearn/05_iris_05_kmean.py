@@ -51,7 +51,7 @@ x=iris.data
 y=iris.target
 
 # k_means 은 답이 없으니 y값이 필요없으나 여기서는 쓰던습관대로 쓰지만 실제 할때는 y값 안쓴다
-# 즉 아말은 밑에 train_test_split설정시 train_y, test_y 도 안쓴다는 소리
+# 즉 아말은 밑에 train_test_split설정시 train_y, test_y 도 나눴지만 안쓴다는소리
 
 #데이터분할
 
@@ -97,3 +97,4 @@ plt.scatter(centers_x,centers_y,s=100,c="r",marker="*")
 plt.show()
 
 
+# reshape에 대해서 고민해볼것.
