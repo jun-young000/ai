@@ -56,8 +56,8 @@ square() : 제곱을 구하는 메소드
 optimizer=tf.train.GradientDescentOptimizer(0.01)
 train=optimizer.minimize(loss)
 '''
-tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(loss)
-경사 하강법을 통하여 cost를 최소화 시킨다. 하강하는 범위 = learning_rate
+한줄코드 tf.train.GradientDescentOptimizer(learning_rate = 0.01).minimize(loss)
+경사 하강법을 통하여 loss를 최소화 시킨다. 하강하는 범위 = learning_rate
 약간 다르긴 한데 하강하는 범위를 설정가능함
 '''
 '''
