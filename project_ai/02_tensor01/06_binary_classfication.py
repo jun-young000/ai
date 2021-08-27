@@ -46,7 +46,11 @@ H=tf.sigmoid(logit)
 
 loss=tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logit, labels=y))
 # sigmoid_cross_entropy_with_logits p를 몰라서 q로 파악한다?????수학적개념->다시 정리해야됨...이해불가.
+"""
+sigmoid 와 Softmax 함수를 사용시에는  cross_entropy  사용해야한다.
 
+
+"""
 #optimizer(Gradient descent)
 learning_rate = 0.1
 optimizer=tf.train.GradientDescentOptimizer(learning_rate)
