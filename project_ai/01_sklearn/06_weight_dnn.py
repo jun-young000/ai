@@ -3,13 +3,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.neural_network import MLPRegressor
 
-
-
-
-
-
 # 1.데이터준비
-df=pd.read_csv("02_weight_height.csv", encoding="euc-kr")
+df=pd.read_csv("raw.csv", encoding="euc-kr")
 df=df[["학교명","학년","성별",'키',"몸무게"]]
 df.dropna(inplace=True)
 
@@ -25,14 +20,17 @@ df['gender']=df['gender'].map(lambda x: 0 if x=="남" else 1)
 x=df[["weight","gender"]]
 y=df["height"]
 
+
+# print(x)
+# print(y)
 poly=PolynomialFeatures()
 x=poly.fit(x).transform(x)
 
 # 2.데이터 분할
 train_x, train_y, test_x , test_y =train_test_split(x,y , test_size=0.3, random_state=1)
-
-
-
+#
+# print(train_x)
+# print(train_y)
 
 # 3. 모델 준비
 # hyperparameter tuning
@@ -51,7 +49,7 @@ MLP.fit(train_x,train_y)
 #
 predict=MLP.predict(test_x)
 
-print("키 예측:",predict)
+print(predict)
 
 accracy=MLP.score(test_x,test_y)
 print(accracy)
